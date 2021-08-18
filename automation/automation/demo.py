@@ -10,6 +10,7 @@ fake_phone_number = fake.phone_number()
 print(fake_phone_number)
 fake_email = fake.email()
 print(fake_email)
+
 content = ""
 for _ in range(100):
     content += fake.paragraph()

@@ -1,6 +1,6 @@
 import re
 
-def get_emails(filepath: str) -> list:
+def get_emails(filepath: str) -> str:
     ''' get the emails from the file '''
     with open(filepath, 'r') as file:
         data = file.read()
@@ -12,11 +12,12 @@ def get_emails(filepath: str) -> list:
         emails += str(x)+"\n"
     return emails
 
-def get_phone(filepath: str) ->list:
+def get_phone(filepath: str) ->str:
     ''' get the phone numbers from the file '''
     with open(filepath, 'r') as file:
         data = file.read()
     match = re.findall(r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})', data)
+    print(match)
     result = remove_duplicates(match)
     sorted_result = sorted(result)
     phone = ""
@@ -44,4 +45,4 @@ if __name__ == "__main__":
     makefile("emails.txt", emails)
 
     phones = get_phone(filepath)
-    makefile("phones.txt", phones)
+    makefile("phone_numbers.txt", phones)
